@@ -15,4 +15,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if message.lower() == 'exit':
             break
         response = send_receive_data(s, message)
+        if message.startswith('/'):
+            print(f"Respuesta del servidor al comando '{message}': {response}")
         print(f"Respuesta del servidor: {response}")
